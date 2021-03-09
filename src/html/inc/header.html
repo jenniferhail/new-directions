@@ -1,0 +1,60 @@
+@include('head.html')
+
+<div id="app" class="page-wrapper">
+
+<!-- @include('notifications.html') -->
+
+    <nav class="skip-nav">
+        <ul class="skip-menu">
+            <a href="#main-menu" class="menu-item">Skip to main menu</a>
+            <a href="#main" class="menu-item">Skip to main content</a>
+        </ul>
+    </nav>
+
+    <header class="header">
+		<div class="wrapper">
+			<a href="/" class="logo">
+				<img class="svg" src="/assets/img/logo.svg" alt="New Directions Home Page">
+            </a>
+            <div class="tagline">
+                <p>Opening doors.</p>
+            </div>
+            <!-- <span class="tagline">Opening doors.</span> -->
+            <button id="nav-toggle" class="nav-toggle">
+                <span class="toggle-text">Menu</span>
+                <span class="toggle-wrapper">
+                    <span class="toggle-bar toggle-bar-1"></span>
+                    <span class="toggle-bar toggle-bar-2"></span>
+                </span>
+            </button>
+			<nav id="main-menu" class="header-nav">
+				<ul class="main-menu left">
+					<li class="menu-item menu-item-has-children">
+                        <a href="/">Our Mission</a>
+                        <ul class="sub-menu">
+                            <li class="menu-item"><a href="#">What We Do</a></li>
+                            <li class="menu-item"><a href="#">Financial Reports</a></li>
+                            <li class="menu-item"><a href="#">Staff & Board</a></li>
+                            <li class="menu-item"><a href="#">Supporters</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item"><a href="/">Scratch Pad</a></li>
+                    <li class="menu-item"><a href="/">Single Post</a></li>
+                    <li class="menu-item"><a href="/">Profile</a></li>
+                </ul>
+                <ul class="main-menu right">
+					<li class="menu-item search"><a href="/">Search</a></li>
+                    <li class="menu-item"><a href="/">News</a></li>
+                    <li class="menu-item"><a href="/">Contact</a></li>
+                    <li class="menu-item button"><a href="/">Donate</a></li>
+                </ul>
+                <!-- <ul class="main-menu">
+                    <li class="menu-item" v-for="layout in layouts">
+                        <a v-bind:href="'/#' + layout.id">{{layout.dataset.menutitle}}</a>
+                    </li>
+                </ul> -->
+			</nav>
+		</div>
+	</header>
+
+    <main id="main">

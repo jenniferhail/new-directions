@@ -1,0 +1,21 @@
+.layout.single-blog {
+    
+    .intro.bg {
+        margin-bottom: 30px;
+        padding: 30px;
+        background: $light-gray;
+        text-align: center;
+        h2 {
+            @extend .h1;
+            margin-bottom: 15px;
+            color: $green;
+        }
+        p {
+            margin: 0;
+        }
+    }
+    .the-content {
+        max-width: $sm-width;
+        margin: 0 auto;
+    }
+}

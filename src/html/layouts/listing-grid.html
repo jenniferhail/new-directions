@@ -1,0 +1,17 @@
+<section id="listing-grid" class="layout listing card-set grid" data-menutitle="Listing - Grid">
+	<div class="wrapper">
+		<h2 class="section-title">Listing - Grid</h2>
+		<ul class="deck-of-cards">
+			<li class="block-single-card post" v-for="n in 8">
+				@include('listing-item.html')
+			</li>
+		</ul>
+		<div class="pagination">
+			<div class="facetwp-pager">
+				<a class="facetwp-page first active" data-page="1">1</a>
+				<a class="facetwp-page last" data-page="2">2</a>
+				<a class="facetwp-page next" data-page="2">&gt;&gt;</a>
+			</div>
+		</div>
+	</div>
+</section>

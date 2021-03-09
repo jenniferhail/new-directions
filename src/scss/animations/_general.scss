@@ -1,0 +1,40 @@
+/* AOS Custom Animation */
+[data-aos="draw"] {
+	transform: scaleY(0);
+	transition-property: transform;
+	transform-origin: top;
+	&.aos-animate {
+		transform: scaleY(1);
+		transition-property: transform;
+		transform-origin: top;
+	}
+}
+
+// Anime JS Fading Resets
+.front-end {
+	.block {
+		opacity: 0;
+	}
+	.block.wp-block-mightily-hero-05 {
+		.title,
+		.title span {
+			opacity: 0;
+		}
+	}
+}
+
+.lottieBtn {
+	width: 20px;
+	height: 19px;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.wp-block-button__link {
+	display: flex;
+	padding-top: 10px;
+	padding-right: 22px;
+	padding-left: 22px;
+}

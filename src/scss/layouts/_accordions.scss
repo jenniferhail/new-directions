@@ -1,0 +1,82 @@
+.block.accordions {
+    .wrapper {
+        max-width: $md-width;
+    }
+    // Removing default accordion arrow
+    details > summary::-webkit-details-marker {
+		display: none;
+    }
+    .accordion {
+        position: relative;
+        margin-bottom: 30px;
+        padding: 0;
+        border: 2px solid $light-gray;
+        background-color: $light-gray;
+        .title {
+            padding: 30px 15px;
+            cursor: pointer;
+            @media ($mobile-sm) {
+                padding: 30px 80px 30px 30px;
+            }
+            @media ($menu) {
+                padding: 45px 100px 45px 50px;
+            }
+            h2 {
+                margin: 0;
+                font-family: $sans-serif;
+                font-size: $base-font-size;
+                font-weight: 600;
+                color: $green;
+            }
+            &:before {
+                content: '';
+                display: inline-block;
+                position: absolute;
+                top: 23px;
+                right: 36px;
+                width: 16px;
+                height: 30px;
+                transform: rotate(90deg);
+                background-image: url($img-path + 'right-arrow.svg');
+                background-repeat: no-repeat;
+                transition: transform $base-duration $base-timing;
+                @media ($mobile-sm) {
+                    top: 23px;
+                    right: 36px;
+                }
+                @media ($menu) {
+                    top: 38px;
+                    right: 57px;
+                }
+            }
+        }
+        .content {
+            padding: 20px 15px;
+            background-color: $white;
+            @media ($mobile-sm) {
+                padding: 30px;
+            }
+            @media ($menu) {
+                padding: 30px 50px 45px;
+            }
+        }
+        &.active {
+            .title {
+                &:before {
+                    background-image: url($img-path + 'green-arrow.svg');
+                    transform: rotate(-90deg);
+                    transition: transform $base-duration $base-timing, background-image $base-duration $base-timing 150ms;
+                }
+            }
+        }
+    }    
+}
+
+// Only hide the content on the front end
+.front-end {
+    .block.accordions {
+        .accordion .content {
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,118 @@
+.fieldset.filters {
+	max-width: $sm-width;
+	margin: 0 auto 50px;
+
+	// Span the full width
+	.facetwp-input-wrap {
+		width: 100%;
+	}
+	// Search term
+	.search-term {
+		@extend .h1;
+		color: $green;
+	}
+	.facetwp-facet {
+		margin-bottom: 0; // Reset
+	}
+	// Search facet
+	.facetwp-type-search {
+		// Hide search icon
+		.facetwp-icon {
+			display: none;
+		}
+		input.facetwp-search {
+			border: 1px solid $base-border-color;
+			@media ($mobile-only) {
+				margin-bottom: 20px;
+			}
+			@media ($menu) {
+				padding-right: 220px;
+			}
+		}
+		.facetwp-input-wrap {
+			text-align: center;
+		}
+		button:last-child, // Reset button
+        .facetwp-search-submit {
+			width: 103px;
+			height: 33px;
+			border: 1px solid $base-border-color;
+			background-color: $light-gray;
+			font-weight: 600;
+			font-size: 13px;
+			letter-spacing: 1px;
+			text-transform: uppercase;
+			transition: all $base-duration $base-timing;
+			@media ($menu) {
+				position: absolute;
+				top: 0;
+				right: 0;
+				height: 100%;
+			}
+			&:hover,
+			&:focus {
+				background-color: $base-font-color;
+				color: $light-gray;
+			}
+		}
+		.facetwp-search-submit {
+			@media ($menu) {
+				border-right: none;
+				right: 103px;
+			}
+		}
+	}
+	// Radio buttons
+	.facetwp-type-radio {
+		// Match spacing below facet fields
+		margin-bottom: -15px;
+		display: flex;
+		align-items: flex-start;
+		justify-content: center;
+		flex-wrap: wrap;
+		.facetwp-radio {
+			position: relative;
+			width: 180px;
+			margin: 0 auto 15px;
+			padding-left: 35px;
+			font-size: 14px;
+			letter-spacing: 0.1px;
+			background: none;
+			@media ($menu) {
+				// width: auto;
+				margin: 0 20px 15px;
+			}
+			&:checked {
+				background: none;
+			}
+			&:before {
+				content: "";
+				position: absolute;
+				width: 20px;
+				height: 20px;
+				top: 0;
+				left: 0;
+				border-radius: 2px;
+				border: 1px solid;
+			}
+			&.checked:before {
+				background-color: $yellow;
+			}
+		}
+	}
+}
+
+.facetwp-load-more {
+	padding: 10px 45px 10px 10px;
+	background: transparent;
+	border: none;
+	color: $green;
+
+	font-size: 14px;
+	letter-spacing: 1px;
+
+	background-image: url($img-path + "down-arrow.svg");
+	background-repeat: no-repeat;
+	background-position: right center;
+	background-size: 26px;
+}

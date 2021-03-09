@@ -1,0 +1,197 @@
+// Variables
+// Find all of your variables here!
+
+// Breakpoints
+$laptop: "min-width: 1260px";
+$tablet: "min-width: 769px";
+$tablet-only: "max-width: 768px";
+$mobile-lg: "min-width: 640px";
+$mobile-sm: "min-width: 480px";
+
+$menu: "min-width: 1111px";
+$mobile-only: "max-width: 1110px";
+
+// Paths
+// $img-path: "/wp-content/themes/mightily/dist/assets/img/";
+// $font-path: "/wp-content/themes/mightily/dist/assets/fonts/";
+$img-path: "../img/";
+$font-path: "../fonts/";
+
+// Typography
+$serif-font: "QuincyCF-Medium";
+$sans-serif-font: "Gilroy";
+
+@font-face {
+	font-family: $serif-font;
+	src: url($font-path + $serif-font + ".eot");
+	/* IE9 Compat Modes */
+	src: url($font-path + $serif-font + ".eot?#iefix")
+			format("embedded-opentype"),
+		/* IE6-IE8 */ url($font-path + $serif-font + ".woff2") format("woff2"),
+		/* Super Modern Browsers */ url($font-path + $serif-font + ".woff")
+			format("woff");
+	/* Pretty Modern Browsers */
+	font-style: normal;
+}
+
+@font-face {
+	font-family: $serif-font;
+	src: url($font-path + $serif-font + "Italic.eot");
+	/* IE9 Compat Modes */
+	src: url($font-path + $serif-font + "Italic.eot?#iefix")
+			format("embedded-opentype"),
+		/* IE6-IE8 */ url($font-path + $serif-font + "Italic.woff2")
+			format("woff2"),
+		/* Super Modern Browsers */
+			url($font-path + $serif-font + "Italic.woff") format("woff");
+	/* Pretty Modern Browsers */
+	font-style: italic;
+}
+
+@font-face {
+	font-family: $sans-serif-font;
+	src: url($font-path + $sans-serif-font + "-Regular.otf");
+	/* IE9 Compat Modes */
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: $sans-serif-font;
+	src: url($font-path + $sans-serif-font + "-RegularItalic.otf");
+	/* IE9 Compat Modes */
+	font-weight: 400;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: $sans-serif-font;
+	src: url($font-path + $sans-serif-font + "-Medium.otf");
+	/* IE9 Compat Modes */
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: $sans-serif-font;
+	src: url($font-path + $sans-serif-font + "-MediumItalic.otf");
+	/* IE9 Compat Modes */
+	font-weight: 500;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: $sans-serif-font;
+	src: url($font-path + $sans-serif-font + "-SemiBold.otf");
+	/* IE9 Compat Modes */
+	font-weight: 600;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: $sans-serif-font;
+	src: url($font-path + $sans-serif-font + "-SemiBoldItalic.otf");
+	/* IE9 Compat Modes */
+	font-weight: 600;
+	font-style: italic;
+}
+
+$sans-serif: $sans-serif-font, "Open Sans", "Gill Sans MT", "Gill Sans", Corbel,
+	Arial, sans-serif; //,
+$serif: $serif-font, Garamond, "Times New Roman", serif; //
+$base-font-family: $sans-serif;
+$heading-font-family: $serif;
+
+// Font Size
+$base-font-size: 17px;
+$mobile-font-size: 15px;
+
+// Line Height
+$base-line-height: 1.6;
+$heading-line-height: 1.2;
+
+// Font Weight
+$base-font-weight: 400;
+$heading-font-weight: $base-font-weight;
+
+// Widths
+$site-width: 1400px;
+$md-width: 900px;
+$sm-width: 660px; // Used for intro blocks and property items
+
+// Other Sizes
+$bottom-margin: 120px;
+
+$bt-margin-l: 80px;
+$bt-margin-sm: 40px;
+$base-border-radius: 0px;
+$base-spacing: 30px;
+$small-spacing: $base-spacing / 2;
+$base-z-index: 0;
+$icon-size: 25px;
+
+// Colors
+$yellow: #edbd6c;
+$light-yellow: #fef4e2;
+$green: #588c9a;
+$light-green: #dee8eb;
+$red: #ac463b;
+$light-red: #f4edeb;
+$gray: #686b79;
+$light-gray: #f7f8f9;
+// $light-gray: rgba(159,161,164,0.06);
+$black: #000000;
+$white: #ffffff;
+$transparent: rgba(255, 255, 255, 0);
+
+$base-fade: 0.8;
+
+$primary: $gray;
+$secondary: $green;
+$links: $primary;
+$hover: $secondary;
+
+// Font Colors
+$base-font-color: $gray;
+$action-color: $green;
+$error-color: $red;
+$color-selection: $light-gray;
+
+// Buttons
+$btn-bg-color: $white;
+$btn-bg-color-hover: $white;
+$btn-text-color: $green;
+$btn-text-color-hover: $green;
+$btn-border-radius: 0;
+
+// Border
+$base-border-color: #979797;
+$base-border: 1px solid $base-border-color;
+
+// Background Colors
+$viewport-background-color: $white;
+
+// Focus
+$focus-outline-color: transparentize($action-color, 0.4);
+$focus-outline-width: 3px;
+$focus-outline: $focus-outline-width solid $focus-outline-color;
+$focus-outline-offset: 2px;
+
+// Transitions
+$base-duration: 300ms;
+$base-timing: ease-in-out;
+
+// Gradient
+@mixin gradient() {
+	background: linear-gradient(#fffcf6, #fef4e2);
+}
+
+// Opacity Hover
+@mixin opacity() {
+	opacity: 1;
+
+	&:hover,
+	&:focus {
+		opacity: $base-fade;
+	}
+}

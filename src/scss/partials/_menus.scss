@@ -1,0 +1,393 @@
+// Main Menu
+.main-menu {
+	@media ($menu) {
+		display: flex;
+	}
+
+	&.left {
+		@media ($mobile-only) {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+		}
+
+		.menu-item {
+			@media ($mobile-only) {
+				margin-bottom: 20px;
+			}
+
+			a {
+				@media ($mobile-only) {
+					font-family: $heading-font-family;
+					font-size: 20px;
+					line-height: 1.15;
+					font-weight: $heading-font-weight;
+					color: $green;
+				}
+			}
+
+			&.menu-item-has-children:hover>a,
+			&.menu-item-has-children:focus>a {
+				@media ($menu) {
+					color: $green;
+				}
+			}
+		}
+	}
+
+	&.right {
+		@media ($mobile-only) {
+			display: flex;
+			padding-top: 20px;
+			border-top: 1px solid $white;
+		}
+
+		.menu-item {
+			a {
+				@media ($mobile-only) {
+					text-decoration: underline;
+				}
+
+				@media ($menu) {
+					color: $action-color;
+				}
+
+				&:hover,
+				&:focus {
+					color: $yellow;
+				}
+			}
+
+			&.menu-item-has-children:hover>a,
+			&.menu-item-has-children:focus>a {
+				@media ($menu) {
+					color: $yellow;
+				}
+			}
+		}
+
+		.menu-item:last-child {
+			@media ($menu) {
+				margin-right: 0;
+			}
+		}
+	}
+
+	.menu-item {
+		position: relative;
+
+		&:hover {
+			@media ($menu) {
+				.sub-menu {
+					display: block;
+				}
+			}
+		}
+
+		&.button {
+			@media ($menu) {
+				a {
+					margin: 0 0 0 15px;
+					padding: 3px 15px;
+					background-color: $action-color;
+					color: $white;
+
+					&:hover,
+					&:focus {
+						background-color: $yellow;
+						color: $white;
+					}
+				}
+
+				&.current-menu-parent a,
+				&.current-menu-item a {
+					color: $white;
+				}
+			}
+		}
+
+		a {
+			position: relative;
+			display: block;
+			margin: 0 15px;
+			padding: 3px 0;
+			color: $base-font-color;
+			overflow: hidden;
+			font-size: 14px;
+
+			@media screen and ($tablet) {
+				font-size: 15px;
+			}
+		}
+	}
+
+	// Menu hover effect
+	.menu-item.current-menu-parent a,
+	.menu-item.current-menu-item a,
+	.menu-item a:hover,
+	.menu-item a:focus {
+		color: $hover;
+	}
+
+	.sub-menu {
+		@media ($menu) {
+			display: none;
+			position: absolute;
+			left: -6px;
+			padding: 10px;
+			background-color: $white;
+		}
+
+		.menu-item {
+			@media ($mobile-only) {
+				margin-bottom: 0;
+			}
+
+			@media ($menu) {
+				white-space: nowrap;
+			}
+
+			a {
+				@media ($mobile-only) {
+					// Base font styles
+					color: $base-font-color;
+					font-family: $base-font-family;
+					font-size: 14px;
+					font-weight: $base-font-weight;
+					line-height: $base-line-height;
+				}
+
+				@media ($menu) {
+					display: block;
+					position: relative;
+					margin: 0;
+					padding: 5px 15px 5px 30px;
+					transform: translateX(-18px);
+
+					&:hover,
+					&:focus {
+						transform: translateX(0);
+
+						&:before {
+							opacity: 1;
+						}
+					}
+
+					&:before {
+						content: '';
+						position: absolute;
+						top: 7px;
+						left: 13px;
+						width: 10px;
+						height: 20px;
+						background-image: url($img-path + 'right-arrow.svg');
+						background-repeat: no-repeat;
+						opacity: 0;
+						transition: opacity $base-duration $base-timing;
+					}
+				}
+
+			}
+		}
+	}
+}
+
+// Footer Menu
+.footer-menu {
+	.menu-item {
+		display: block;
+		padding: 5px 0;
+
+		@media ($menu) {
+			display: inline-block;
+		}
+
+		a {
+			padding: 5px 0;
+			color: $gray;
+
+			&:hover,
+			&:focus {
+				color: $action-color;
+			}
+		}
+
+		+.menu-item {
+			@media ($menu) {
+				margin-left: $base-spacing;
+			}
+		}
+	}
+}
+
+// Social Icons
+.social-menu {
+	font-size: 0;
+
+	.menu-item {
+		display: inline-block;
+		font-size: 0;
+
+		&:not(:first-child) {
+			margin-left: 20px;
+		}
+	}
+
+	a {
+		display: block;
+		position: relative;
+		width: $icon-size;
+		height: $icon-size;
+		border-radius: $icon-size;
+		background-color: $gray;
+		color: $white;
+		font-size: 0;
+		line-height: $icon-size;
+		transition: all $base-duration $base-timing;
+		@include opacity();
+
+		&:hover,
+		&:focus {
+			background-color: $action-color;
+		}
+	}
+
+	i {
+		position: absolute;
+		top: calc(50% + 1px);
+		left: 50%;
+		transform: translate(-50%, -50%);
+		font-size: 14px;
+	}
+}
+
+// Sharing
+.social.share {
+	@include disableLists();
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	padding-top: 30px;
+
+	.label {
+		margin-right: 10px;
+		font-family: $sans-serif;
+		font-size: 16px;
+		font-weight: 600;
+	}
+}
+
+// Pagination
+.pagination {
+	.facetwp-pager {
+		position: relative;
+		padding-bottom: 23px;
+		font-size: 0;
+		text-align: right;
+	}
+
+	.facetwp-page {
+		padding: 0 5px;
+		font-family: $sans-serif;
+		font-size: 18px;
+		font-weight: 600;
+
+		&.active,
+		&:hover,
+		&:focus {
+			color: $hover;
+		}
+
+		&:hover {
+			cursor: pointer;
+		}
+
+		&.next,
+		&.prev {
+			position: relative;
+			width: 20px;
+			height: 23px;
+			padding: 0 2.5px;
+			color: transparent;
+
+			&:before,
+			&:after {
+				position: absolute;
+				transform: rotate(0);
+				transition: transform $base-duration $base-timing, border $base-duration $base-timing;
+			}
+		}
+
+		&.next {
+			&:before {
+				top: 4px;
+				right: 0px;
+				@include triangle(right, $base-font-color, $size: 18px);
+			}
+
+			&:after {
+				top: 7px;
+				right: 4px;
+				@include triangle(right, $white, $size: 12px);
+			}
+
+			&:hover,
+			&:focus {
+				&:after {
+					@include triangle(right, $base-font-color, $size: 12px);
+				}
+			}
+		}
+
+		&.prev {
+			&:before {
+				top: 4px;
+				right: 0px;
+				@include triangle(left, $base-font-color, $size: 18px);
+			}
+
+			&:after {
+				top: 7px;
+				right: 2px;
+				@include triangle(left, $white, $size: 12px);
+			}
+
+			&:hover,
+			&:focus {
+				&:after {
+					@include triangle(left, $base-font-color, $size: 12px);
+				}
+			}
+		}
+	}
+}
+
+// Skip Menu
+.skip-menu {
+	position: absolute;
+	top: 100px;
+	left: 0;
+	width: 100%;
+	height: 0;
+	z-index: 9999;
+	text-align: center;
+
+	a {
+		position: absolute;
+		left: -999999px;
+		padding: 16px 30px 20px;
+		border-radius: 60px;
+		background-color: rgba(0, 0, 0, 0.6);
+		color: $white;
+		font-family: $sans-serif;
+		font-size: 60px;
+		font-weight: 600;
+		transition: background-color $base-duration $base-timing;
+
+		&:focus {
+			left: 50%;
+			transform: translateX(-50%);
+			background-color: rgba(0, 0, 0, 0.8);
+			outline: none;
+		}
+	}
+}

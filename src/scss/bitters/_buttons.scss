@@ -1,0 +1,154 @@
+@mixin btn-base() {
+  position: relative;
+  display: inline-block;
+  padding: 17px 25px 15px;
+  margin-bottom: 15px;
+  
+  font-family: $sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-weight: $base-font-weight;
+  line-height: 1;
+  
+  text-align: center;
+  text-decoration: none;
+  border-radius: $btn-border-radius;
+
+  transition: color $base-duration $base-timing, background-color $base-duration $base-timing;
+  user-select: none;
+  vertical-align: middle;
+  appearance: none;
+  box-sizing: content-box;
+  cursor: pointer;
+  &:hover {
+    outline: none;
+  }
+  &:focus {
+    outline: $focus-outline;
+    outline-offset: $focus-outline-offset;
+  }
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.2;
+  }
+}
+@mixin btn-1() {
+  @include btn-base();
+  padding: 0 0 6px;
+  font-size: $base-font-size;
+  color: $btn-text-color;
+  background-color: $transparent;
+  border: none;
+  letter-spacing: 0.5px;
+  overflow: hidden;
+  &:hover, 
+  &:focus, 
+  &:active, 
+  &:visited {
+    color: $btn-text-color;
+  }
+  @media ($menu) {
+    font-size: $mobile-font-size;
+  }
+  &:after {
+    content: '';
+    display: block;
+    width: calc(100% - 44px);
+    height: 1px;
+    position: absolute;
+    left: 22px;
+    bottom: 2px;
+    transform-origin: right;
+    transform: scale(1);
+    transition: transform $base-duration $base-timing;
+    background-color: $green;
+  }
+  .lottieBtn {
+    opacity: 0;
+    transition: opacity $base-duration $base-timing;
+  }
+  &.start {
+    &:after {
+      transform: scale(0);
+    }
+    .lottieBtn {
+      opacity: 1;
+    }
+  }
+  &.finish {
+    &:after {
+      transform: scale(1);
+    }
+  }
+  &.fade-out {
+    .lottieBtn {
+      opacity: 0;
+    }
+  }
+}
+@mixin btn-2() {
+  @include btn-base();
+  color: $base-font-color;
+  background-color: $transparent;
+  border: none;
+  letter-spacing: 0.5px;
+  &:hover, 
+  &:focus, 
+  &:active, 
+  &:visited {
+    color: $black;
+    background-color: $transparent;
+  }
+}
+
+// Theme buttons
+// .front-end {
+  .wp-block-buttons {
+    position: relative;
+    padding-top: 15px;
+    z-index: 1;
+
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -22px;
+    margin-right: -22px;
+  }
+  .wp-block-button {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  p + {
+    .wp-block-button {
+      padding-top: 0; // Top padding for buttons under paragraphs
+    }
+  }
+  .wp-block-button__link,
+  input[type="submit"],
+  input[type="reset"] {
+    @include btn-1();
+  }
+
+  .facetwp-facet-load_more {
+    text-align: center;
+  }
+// }
+
+// Button style in the editor
+.wp-block-button__link {
+  @include btn-1();
+}
+.is-style-outline .wp-block-button__link {
+  @include btn-2();
+}
+
+// Repeat buttons styles from above to style the form buttons on the front end
+.front-end .layout:not(.hero) form,
+.front-end .block:not(.hero) form {
+  #{$all-buttons} {
+    @include btn-base();
+    @include btn-1();
+    @media ($tablet) {
+      display: block;
+      margin: 0 auto 15px;
+    }
+  }
+}

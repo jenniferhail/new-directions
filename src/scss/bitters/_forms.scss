@@ -1,0 +1,312 @@
+$_form-background-color: #fff;
+$_form-box-shadow: none;
+$_form-box-shadow-focus: none;
+
+.front-end,
+.block-editor-page .gform_wrapper {
+  form {
+    font-family: $sans-serif;
+    color: $base-font-color;
+  }
+  
+  fieldset {
+    background-color: transparent;
+    border: 0;
+    margin: 0;
+    padding: 0;
+  }
+  
+  legend {
+    font-weight: 600;
+    margin-bottom: $small-spacing / 2;
+    padding: 0;
+  }
+  
+  label {
+    display: block;
+    font-weight: 600;
+    font-family: $sans-serif;
+    margin-bottom: $small-spacing / 2;
+  }
+  
+  input,
+  select,
+  textarea {
+    display: block;
+    // font-family: $base-font-family;
+    font-size: 16px;
+  }
+  
+  #{$all-text-inputs} {
+    width: 100%;
+    margin-bottom: $small-spacing;
+    padding: 14px;
+    
+    color: inherit;
+    background-color: $_form-background-color;
+    font-size: $base-font-size;
+    border: $base-border;
+    border-radius: $base-border-radius;
+    box-shadow: $_form-box-shadow;
+    box-sizing: border-box;
+    appearance: none;
+    transition: border-color $base-duration $base-timing;
+    &:hover {
+      border-color: shade($base-border-color, 20%);
+    }
+    &:focus {
+      border-color: $base-border-color;
+      box-shadow: $_form-box-shadow-focus;
+      outline: none;
+    }
+    &:disabled {
+      background-color: shade($_form-background-color, 5%);
+      cursor: not-allowed;
+      &:hover {
+        border: $base-border;
+      }
+    }
+    &::placeholder {
+      color: tint($base-font-color, 60%);
+    }
+  }
+
+  [type="range"] {
+    margin-bottom: $small-spacing;
+  }
+  
+  textarea {
+    resize: vertical;
+  }
+  
+  [type="checkbox"],
+  [type="radio"] {
+    display: inline;
+    margin-right: $small-spacing / 2;
+  }
+  
+  [type="file"] {
+    margin-bottom: $small-spacing;
+    width: 100%;
+  }
+
+  /* class applies to select element itself, not a wrapper element */
+  select {
+    display: block;
+    color: $base-font-color;    
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.3;
+    padding: 10px;
+    max-width: 100%;
+    height: 42px;
+    box-sizing: border-box;
+    margin: 0 0 $small-spacing;
+    border: $base-border;
+    box-shadow: none;
+    border-radius: $base-border-radius;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: $white;
+    /* note: bg image below uses 2 urls. The first is an svg data uri for the arrow icon, and the second is the gradient. 
+      for the icon, if you want to change the color, be sure to use `%23` instead of `#`, since it's a url. You can also swap in a different svg icon or an external image reference
+    */
+    background-image: url($img-path + 'down-arrow.svg'),
+      linear-gradient(to bottom, $white 0%, $white 100%);
+    background-repeat: no-repeat, repeat;
+    /* arrow icon position (1em from the right, 50% vertical) , then gradient position*/
+    background-position: right 12px top 54%, 0 0;
+    /* icon size, then gradient */
+    background-size: 20px auto, 100%;
+    /* Hide arrow icon in IE browsers */
+    &::-ms-expand {
+      display: none;
+    }
+    /* Set options to normal weight */
+    option {
+      font-weight: normal;
+    }
+    /* Disabled styles */
+    &:disabled, &[aria-disabled=true] {
+      color: graytext;
+      background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22graytext%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
+        linear-gradient(to bottom, $light-gray 0%,$light-gray 100%);
+    }
+    &:disabled:hover, &[aria-disabled=true] {
+      border-color: #aaa;
+    }
+
+    &.facetwp-dropdown {
+      padding: 10px;
+      color: $white;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      background-color: $black;
+      background-image: url($img-path + 'down-arrow.svg'),
+      linear-gradient(to bottom, $black 0%, $black 100%);
+    }
+  }
+
+  .gform_wrapper.gf_browser_chrome select {
+    padding: 10px;
+  }
+
+  /* Support for rtl text, explicit support for Arabic and Hebrew */
+  *[dir="rtl"] select, 
+  :root:lang(ar) select, 
+  :root:lang(iw) select {
+    background-position: left .7em top 50%, 0 0;
+    padding: .6em .8em .5em 1.4em;
+  }
+  
+  [type="checkbox"],
+  [type="radio"],
+  [type="file"],
+  select {
+    &:focus {
+      border-color: $base-border-color;
+      box-shadow: $_form-box-shadow-focus;
+      outline: none;
+    }
+  }
+  
+  input[type="search"] {
+    box-sizing: border-box;
+  }
+
+  form input[type="submit"] {
+    position: relative;
+    display: inline-block;
+    min-width: 146px;
+    margin-bottom: 15px;
+    padding: 14px 15px 13px;
+  
+    font-family: $sans-serif;
+    font-size: 13px;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 600;
+    line-height: 1;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  
+    color: $base-font-color;
+    background-color: rgba(159,161,164,0.06);
+    border: $base-border;
+    border-radius: $btn-border-radius;
+  
+    transition: all $base-duration $base-timing;
+    user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+    appearance: none;
+    box-sizing: content-box;
+    cursor: pointer;
+    &:hover,
+    &:focus {
+      background-color: $base-border-color;
+      color: $white;
+      outline: none;
+    }
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+  }
+}
+
+// Gravity Forms
+.front-end .gform_wrapper,
+.gform_wrapper {
+  max-width: $md-width;
+  margin: 0 auto;
+  background-color: $light-gray;
+  form {
+    max-width: $sm-width;
+    margin: 0 auto;
+    padding: 45px 30px;
+  }
+  h3.gform_title {
+    @extend .h1;
+    margin: 0;
+    padding-bottom: 15px;
+    text-align: center;
+    color: $green;
+  }
+
+  // Resets
+  .gfield {
+    margin-top: 25px;
+  }
+  span.gform_description {
+    width: 100%;
+  }
+  img.gform_ajax_spinner {
+    display: none !important;
+  }
+  .gform_footer {
+    padding-top: 15px;
+    text-align: center;
+  }
+  .top_label div.ginput_container {
+    margin-top: 0;
+  }
+  .gfield_required {
+    color: $base-font-color;
+  }
+  .field_description_below .gfield_description {
+    padding-top: 6px;
+  }
+  input:not([type='radio']):not([type='checkbox']):not([type='submit']):not([type='button']):not([type='image']):not([type='file']) {
+    padding: 10px;
+  }
+  .gform_footer input.button, 
+  .gform_page_footer input.button, 
+  .gform_footer input[type=submit], 
+  .gform_page_footer input[type=submit] {
+    font-size: 13px;
+  }
+  // End Resets
+
+  // Error Styling
+  div.validation_error {
+    color: $error-color;
+    font-size: 1em;
+    font-weight: 700;
+    margin-bottom: 0;
+    border-top: 2px solid $error-color;
+    border-bottom: 2px solid $error-color;
+    padding: 16px 0 16px 0;
+    clear: both;
+    width: 100%;
+    text-align: center;
+  }
+  .validation_message {
+    color: $error-color;
+    font-weight: 700;
+    font-style: italic;
+    letter-spacing: normal;
+  }
+  .gfield_error .gfield_label {
+    color: $error-color;
+  }
+  li.gfield.gfield_error, 
+  li.gfield.gfield_error.gfield_contains_required.gfield_creditcard_warning {
+    border: none;
+    background: none;
+  }
+  li.gfield_error input:not([type='radio']):not([type='checkbox']):not([type='submit']):not([type='button']):not([type='image']):not([type='file']),
+  li.gfield_error textarea {
+    border: 2px solid $error-color;
+  }
+  &.gform_validation_error {
+    padding-top: 20px;
+  }
+  &.gform_validation_error .gform_body ul li.gfield.gfield_error:not(.gf_left_half):not(.gf_right_half) {
+    @media only screen and (min-width: 641px) {
+      max-width: 100% !important;
+    }
+  }
+  // End Error Styling
+}

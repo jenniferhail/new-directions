@@ -1,0 +1,71 @@
+@include('inc/header.html')
+
+<!-- Add layouts here to play with! -->
+
+<!-- @include('layouts/sliders.html') -->
+
+<!-- 
+        New hero uses hero 02 style 3 with some pieces of content removed 
+        I don't know if we should keep the extra stuff or not
+        Content left and right aren't needed
+    -->
+
+<section class="wp-block-mightily-hero-05 block hero">
+    <div class="wrapper">
+        <div class="content">
+            <h1 class="title">
+                <span class="title-1">Creating sustainable housing. <br /></span>
+                <span class="title-2">Not to mention sustainable lives.</span>
+            </h1>
+        </div>
+        <div class="image-wrapper">
+            <div class="background-image"
+                style="background-image:url(/assets/img/hero.jpg);background-size:cover;background-position:bottom right">
+                <img src="/assets/img/hero.jpg" alt="Placeholder Image" class="visually-hidden" />
+            </div>
+            <div class="background-image-mobile"
+                style="background-image:url(/assets/img/hero.jpg);background-size:cover;background-position:top center">
+                <img src="/assets/img/hero.jpg" alt="Placeholder Image" class="visually-hidden" />
+            </div>
+        </div>
+    </div>
+</section>
+
+@include('layouts/hero-02-style-3.html')
+
+@include('layouts/intro.html')
+
+@include('layouts/accordion.html')
+
+<div class="fieldset filters">
+    <div class="facetwp-facet facetwp-facet-load_more facetwp-type-pager" data-name="load_more" data-type="pager">
+        <button class="facetwp-load-more" data-loading="Loading...">Load more</button></div>
+</div>
+
+@include('layouts/hero-02-style-1.html')
+
+@include('layouts/hero-02-style-2.html')
+
+@include('layouts/hero-02-style-4.html')
+
+@include('layouts/hero-03-style-4.html')
+
+@include('layouts/hero-04-style-5.html')
+
+@include('layouts/cards.html')
+
+@include('layouts/gallery.html')
+
+<div class="wrapper">
+    @include('list-items/post.html')
+
+    @include('list-items/page.html')
+
+    @include('list-items/document.html')
+
+    @include('list-items/people.html')
+</div>
+
+@include('layouts/listing-property.html')
+
+@include('inc/footer.html')
